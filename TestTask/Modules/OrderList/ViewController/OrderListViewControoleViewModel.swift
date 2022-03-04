@@ -11,7 +11,7 @@ import UIKit
 protocol ViewControllerViewModelProtocol {
     var nubmerOfRowInSection: Int { get }
     func returnCell(forindexPath indexPath: IndexPath) -> OrderListCellViewModelProtocol?
-    func getOrders(tableView: UITableView)
+    func getOrders(tableView: UITableView, funcShowAllert: @escaping (Error) -> Void)
 }
 
 class ViewControllerViewModel: ViewControllerViewModelProtocol {
@@ -22,29 +22,35 @@ class ViewControllerViewModel: ViewControllerViewModelProtocol {
     
     var orders: MainData?
    
-    func getOrders(tableView: UITableView) {
+    func getOrders(tableView: UITableView, funcShowAllert: @escaping (Error) -> Void) {
         networkManager?.getList { [weak self] result in
             switch result {
                 
-            case .success(let orders):
-                self?.orders = orders
+            case .success(var fetchedOrders):
+                fetchedOrders.sort {
+                    $0.orderTime > $1.orderTime
+                }
+                self?.orders = fetchedOrders
+               
                 DispatchQueue.main.async {
                     tableView.reloadData()
                 }
-                print(orders)
             case .failure(let error):
-                print(error.localizedDescription)
+                funcShowAllert(error)
             }
         }
     }
     
     func returnCell(forindexPath indexPath: IndexPath) -> OrderListCellViewModelProtocol? {
-        guard let data = orders else { return nil }
+        
+        guard var data = orders else { return nil }
+        data.sort {
+            $0.orderTime > $1.orderTime
+        }
         let order =  data[indexPath.row]
         print(order)
         return OrderListCellViewModel(order: order)
     }
     
 
-    
 }

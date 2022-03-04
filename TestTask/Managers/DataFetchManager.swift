@@ -14,7 +14,7 @@ protocol NetworkManagerProtocol {
 
 class NetworkManager: NetworkManagerProtocol {
     
-    var baseUrlString = "https://www.roxiemobile.ru/careers/test/orders.json"
+    var baseUrlString = "https://www.roxiemobile.ru/careers/test/orders.jsonx`"
     
     func getList(complition: @escaping (Result<MainData, Error>) -> Void) {
         request(url: baseUrlString) { (result: Result<MainData, Error>) in
@@ -44,7 +44,7 @@ class NetworkManager: NetworkManagerProtocol {
                     return
                 }
                 DispatchQueue.main.async {
-                    complition(.failure(NetworkError.lostNetworkConnection))
+                    complition(.failure(NetworkError.lostNetworkConnection.errorDescription as! Error))
                 }
                 return
             }

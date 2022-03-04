@@ -16,7 +16,9 @@ class OrderListTableViewController: UITableViewController {
         setupUI()
     
         viewModel = ViewControllerViewModel()
-        viewModel.getOrders(tableView: tableView)
+        viewModel.getOrders(tableView: tableView) { [unowned self] error in
+            self.showAllertError(withError: error)
+        }
     }
 
     // MARK: - Table view data source
@@ -35,10 +37,19 @@ class OrderListTableViewController: UITableViewController {
         return cell
     }
    //MARK: UI setting
+  
+    func showAllertError(withError error: Error) {
+        let error = error.localizedDescription
+        let allertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        allertController.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+        present(allertController, animated: true)
+    }
+    
     private func setupUI() {
         title = "Order list"
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = .none
         tableView.register(OrderListTableViewCell.self, forCellReuseIdentifier: "orderCell")
     }
+
 }
