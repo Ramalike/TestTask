@@ -32,11 +32,14 @@ class OrderListCellViewModel: OrderListCellViewModelProtocol {
     }
     
     var price: String {
-        return String(describing: orders.price)
+        return String("\(orders.price.amount / 100).\(orders.price.amount % 100) \(orders.price.currency)")
     }
     
     var orderTime: String {
-        return String(describing: orders.orderTime)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy, EEEE"
+        let orderTime = formatter.string(from: orders.orderTime)
+        return orderTime
     }
    
     init(order: FullData) {

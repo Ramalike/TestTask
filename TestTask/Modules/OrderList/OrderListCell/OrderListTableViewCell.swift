@@ -36,7 +36,6 @@ class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
     var endImage: UIImageView = .circleImageView()
     var endAdressLabel = UILabel(font: .helvetica17())
     var price = UILabel(font: .helvetica19Bold())
-    
     //MARK: Setup UI
     
     func setupUI() {
@@ -71,7 +70,7 @@ class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
                                             [startAdressStackView, endAdressStackView],
                                              axis: .vertical,
                                              spacing: 10)
-        let orderStackView = UIStackView(arrangedSubviews: [orderInfoStackView, price], axis: .horizontal, spacing: 30)
+        let orderStackView = UIStackView(arrangedSubviews: [orderInfoStackView, price], axis: .horizontal, spacing: 40)
         
         view.addSubview(dataLabel)
         view.addSubview(orderStackView)
@@ -86,6 +85,8 @@ class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
             dataLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             dataLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             dataLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            
+            price.widthAnchor.constraint(equalToConstant: 100),
             
             orderStackView.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 10),
             orderStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),

@@ -14,10 +14,9 @@ class OrderListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        let button = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
-        navigationItem.leftBarButtonItem = button
+    
         viewModel = ViewControllerViewModel()
+        viewModel.getOrders(tableView: tableView)
     }
 
     // MARK: - Table view data source
@@ -35,13 +34,11 @@ class OrderListTableViewController: UITableViewController {
         cell.viewModel = cellViewModel as? OrderListCellViewModel
         return cell
     }
-   
+   //MARK: UI setting
     private func setupUI() {
         title = "Order list"
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = .none
-    }
-    @objc func refresh() {
-        tableView.reloadData()
+        tableView.register(OrderListTableViewCell.self, forCellReuseIdentifier: "orderCell")
     }
 }

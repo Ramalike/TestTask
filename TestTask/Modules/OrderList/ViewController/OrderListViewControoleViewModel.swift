@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ViewControllerViewModelProtocol {
     var nubmerOfRowInSection: Int { get }
     func returnCell(forindexPath indexPath: IndexPath) -> OrderListCellViewModelProtocol?
-    
+    func getOrders(tableView: UITableView)
 }
 
 class ViewControllerViewModel: ViewControllerViewModelProtocol {
@@ -21,12 +22,15 @@ class ViewControllerViewModel: ViewControllerViewModelProtocol {
     
     var orders: MainData?
    
-    func getOrders() {
+    func getOrders(tableView: UITableView) {
         networkManager?.getList { [weak self] result in
             switch result {
                 
             case .success(let orders):
                 self?.orders = orders
+                DispatchQueue.main.async {
+                    tableView.reloadData()
+                }
                 print(orders)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -35,18 +39,12 @@ class ViewControllerViewModel: ViewControllerViewModelProtocol {
     }
     
     func returnCell(forindexPath indexPath: IndexPath) -> OrderListCellViewModelProtocol? {
-       getOrders()
         guard let data = orders else { return nil }
         let order =  data[indexPath.row]
         print(order)
         return OrderListCellViewModel(order: order)
     }
     
-    init() {
-        DispatchQueue.main.async {
-            self.getOrders()
-        }
-    }
 
     
 }
