@@ -20,7 +20,7 @@
 		4F1E592927CFD4D30017BFA3 /* DataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E592827CFD4D30017BFA3 /* DataFetchManager.swift */; };
 		4F1E592B27CFE51B0017BFA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E592A27CFE51B0017BFA3 /* Model.swift */; };
 		4F1E592E27D01E520017BFA3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E592D27D01E520017BFA3 /* NetworkError.swift */; };
-		4F71ACD827D3D9C4008F5D55 /* KingFisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71ACD727D3D9C4008F5D55 /* KingFisherManager.swift */; };
+		4F71ACD827D3D9C4008F5D55 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71ACD727D3D9C4008F5D55 /* ImageManager.swift */; };
 		4F71ACDA27D3FD95008F5D55 /* KingfisherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71ACD927D3FD95008F5D55 /* KingfisherError.swift */; };
 		4FFA3D2A27D0D0110065A989 /* orderListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA3D2927D0D0110065A989 /* orderListCellViewModel.swift */; };
 		4FFA3D2C27D0D2BA0065A989 /* OrderListViewControoleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA3D2B27D0D2BA0065A989 /* OrderListViewControoleViewModel.swift */; };
@@ -45,7 +45,7 @@
 		4F1E592827CFD4D30017BFA3 /* DataFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchManager.swift; sourceTree = "<group>"; usesTabs = 0; };
 		4F1E592A27CFE51B0017BFA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4F1E592D27D01E520017BFA3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		4F71ACD727D3D9C4008F5D55 /* KingFisherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherManager.swift; sourceTree = "<group>"; };
+		4F71ACD727D3D9C4008F5D55 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		4F71ACD927D3FD95008F5D55 /* KingfisherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherError.swift; sourceTree = "<group>"; };
 		4FFA3D2927D0D0110065A989 /* orderListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderListCellViewModel.swift; sourceTree = "<group>"; };
 		4FFA3D2B27D0D2BA0065A989 /* OrderListViewControoleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewControoleViewModel.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			children = (
 				4F1E592A27CFE51B0017BFA3 /* Model.swift */,
 				4F1E592827CFD4D30017BFA3 /* DataFetchManager.swift */,
-				4F71ACD727D3D9C4008F5D55 /* KingFisherManager.swift */,
+				4F71ACD727D3D9C4008F5D55 /* ImageManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -237,7 +237,6 @@
 				4F1E58F427CF90630017BFA3 /* Sources */,
 				4F1E58F527CF90630017BFA3 /* Frameworks */,
 				4F1E58F627CF90630017BFA3 /* Resources */,
-				2F826CAE067CAB352AC08947 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,23 +293,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F826CAE067CAB352AC08947 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestTask/Pods-TestTask-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestTask/Pods-TestTask-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestTask/Pods-TestTask-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F95F32983CE260993291B53A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -348,7 +330,7 @@
 				4F1E58FE27CF90630017BFA3 /* SceneDelegate.swift in Sources */,
 				4F1E592027CF97560017BFA3 /* StackView Extension.swift in Sources */,
 				4F1E592B27CFE51B0017BFA3 /* Model.swift in Sources */,
-				4F71ACD827D3D9C4008F5D55 /* KingFisherManager.swift in Sources */,
+				4F71ACD827D3D9C4008F5D55 /* ImageManager.swift in Sources */,
 				4F1E592527CF99760017BFA3 /* UIFont extension.swift in Sources */,
 				4F1E592327CF979D0017BFA3 /* UILabel Extension.swift in Sources */,
 				4F1E592927CFD4D30017BFA3 /* DataFetchManager.swift in Sources */,

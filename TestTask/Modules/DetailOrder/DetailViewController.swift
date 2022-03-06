@@ -20,12 +20,19 @@ class DetailViewController: UIViewController {
     weak var viewModel: DetailViewControllerViewModelProtocol? {
         didSet {
             if viewModel?.order != nil {
+                guard let id = viewModel?.id else {
+                    showAllert(error: NetworkError.irconectData); return
+                }
                 setupViewElements()
+                viewModel?.imageManager.getImageData(id: id, complition: { [weak self] data in
+                    self?.vehicleImage.image = UIImage(data: data)
+                })
             } else {
                 showAllert(error: NetworkError.irconectData)
             }
         }
     }
+    
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +59,6 @@ class DetailViewController: UIViewController {
         regNumberLabel.text = "Register number: " + (unwrapViewModel.order?.vehicle.regNumber)!
         driverNameLabel.text = "Driver name: " + (unwrapViewModel.order?.vehicle.driverName)!
         orderTimeLabel.text = "Order time: " + dateFortmater.string(from: unwrapViewModel.order!.orderTime)
-        
-        viewModel?.kingfisherManager.fetchImage(id: viewModel!.id, image: vehicleImage, handler: {
-            [unowned self] (error) in
-            self.showAllert(error: error)
-        })
     }
     
     private func setupConstraints() {
