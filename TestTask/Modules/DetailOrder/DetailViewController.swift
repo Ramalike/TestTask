@@ -85,7 +85,7 @@ class DetailViewController: UIViewController {
             grayView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             grayView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
             grayView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
-            grayView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            grayView.bottomAnchor.constraint(equalTo: vehicleImage.bottomAnchor, constant: 20),
             
             infoStackView.topAnchor.constraint(equalTo: grayView.topAnchor, constant: 10),
             infoStackView.leadingAnchor.constraint(equalTo: grayView.leadingAnchor, constant: 10),
@@ -95,7 +95,7 @@ class DetailViewController: UIViewController {
             vehicleImage.topAnchor.constraint(equalTo: infoStackView.bottomAnchor, constant: 10),
             vehicleImage.leadingAnchor.constraint(equalTo: grayView.leadingAnchor, constant: 15),
             vehicleImage.trailingAnchor.constraint(equalTo: grayView.trailingAnchor, constant: -18),
-            vehicleImage.bottomAnchor.constraint(equalTo: grayView.bottomAnchor, constant: -10),
+            vehicleImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.29),
         ])
     }
     
