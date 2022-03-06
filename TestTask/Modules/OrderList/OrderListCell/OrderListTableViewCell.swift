@@ -12,6 +12,16 @@ protocol OrderListTableViewCellProtocol: AnyObject {
 }
 
 class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
+    
+    //MARK: Properties
+    private var dataLabel = UILabel(font: .helvetica17Bold())
+    private var startCityLabel = UILabel(font: .helvetica14Light())
+    private var startImage: UIImageView = .circleImageView()
+    private var startAdressLabel = UILabel(font: .helvetica17())
+    private var endCityLabel = UILabel(font: .helvetica14Light())
+    private var endImage: UIImageView = .circleImageView()
+    private var endAdressLabel = UILabel(font: .helvetica17())
+    private var price = UILabel(font: .helvetica19Bold())
    
     weak var viewModel: OrderListCellViewModel? {
         willSet(viewModel) {
@@ -27,25 +37,16 @@ class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
     }
     
     
-    //MARK: Properties
-    var dataLabel = UILabel(font: .helvetica17Bold())
-    var startCityLabel = UILabel(font: .helvetica14Light())
-    var startImage: UIImageView = .circleImageView()
-    var startAdressLabel = UILabel(font: .helvetica17())
-    var endCityLabel = UILabel(font: .helvetica14Light())
-    var endImage: UIImageView = .circleImageView()
-    var endAdressLabel = UILabel(font: .helvetica17())
-    var price = UILabel(font: .helvetica19Bold())
     //MARK: Setup UI
     
-    func setupUI() {
+    private func setupUI() {
         self.selectionStyle = .none
         self.backgroundColor = .white
     }
     
     //MARK: Setup Constraints
     
-    func setupConstraints() {
+    private func setupConstraints() {
         let view = UIView()
         addSubview(view)
         view.layer.cornerRadius = 7
@@ -53,21 +54,21 @@ class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
         view.translatesAutoresizingMaskIntoConstraints = false
         dataLabel.translatesAutoresizingMaskIntoConstraints = false
         let startAdressTextStackView = UIStackView(arrangedSubviews: [startCityLabel, startAdressLabel],
-                                               axis: .vertical,
-                                               spacing: 5)
+                                                   axis: .vertical,
+                                                   spacing: 5)
         let startAdressStackView = UIStackView(arrangedSubviews:
                                                 [startImage, startAdressTextStackView],
-                                                axis: .horizontal,
-                                                spacing: 10)
+                                               axis: .horizontal,
+                                               spacing: 10)
         let endAdressTextStackView = UIStackView(arrangedSubviews: [endCityLabel, endAdressLabel],
-                                               axis: .vertical,
-                                               spacing: 5)
+                                                 axis: .vertical,
+                                                 spacing: 5)
         let endAdressStackView = UIStackView(arrangedSubviews:
                                                 [endImage, endAdressTextStackView],
-                                                axis: .horizontal,
-                                                spacing: 10)
+                                             axis: .horizontal,
+                                             spacing: 10)
         let orderInfoStackView = UIStackView(arrangedSubviews:
-                                            [startAdressStackView, endAdressStackView],
+                                                [startAdressStackView, endAdressStackView],
                                              axis: .vertical,
                                              spacing: 10)
         let orderStackView = UIStackView(arrangedSubviews: [orderInfoStackView, price], axis: .horizontal, spacing: 40)
@@ -76,7 +77,7 @@ class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
         view.addSubview(orderStackView)
         
         NSLayoutConstraint.activate([
-        
+            
             view.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),

@@ -20,8 +20,13 @@
 		4F1E592927CFD4D30017BFA3 /* DataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E592827CFD4D30017BFA3 /* DataFetchManager.swift */; };
 		4F1E592B27CFE51B0017BFA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E592A27CFE51B0017BFA3 /* Model.swift */; };
 		4F1E592E27D01E520017BFA3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E592D27D01E520017BFA3 /* NetworkError.swift */; };
+		4F71ACD827D3D9C4008F5D55 /* KingFisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71ACD727D3D9C4008F5D55 /* KingFisherManager.swift */; };
+		4F71ACDA27D3FD95008F5D55 /* KingfisherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71ACD927D3FD95008F5D55 /* KingfisherError.swift */; };
 		4FFA3D2A27D0D0110065A989 /* orderListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA3D2927D0D0110065A989 /* orderListCellViewModel.swift */; };
 		4FFA3D2C27D0D2BA0065A989 /* OrderListViewControoleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFA3D2B27D0D2BA0065A989 /* OrderListViewControoleViewModel.swift */; };
+		4FFE05F527D2CD230062DB1D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE05F427D2CD230062DB1D /* DetailViewController.swift */; };
+		4FFE05F727D2CD3B0062DB1D /* DetailViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE05F627D2CD3B0062DB1D /* DetailViewControllerViewModel.swift */; };
+		F6981A4D3746A74B30C75D24 /* Pods_TestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D0A0FFDB14106E0BDA3CD5A /* Pods_TestTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +45,15 @@
 		4F1E592827CFD4D30017BFA3 /* DataFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchManager.swift; sourceTree = "<group>"; usesTabs = 0; };
 		4F1E592A27CFE51B0017BFA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4F1E592D27D01E520017BFA3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		4F71ACD727D3D9C4008F5D55 /* KingFisherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherManager.swift; sourceTree = "<group>"; };
+		4F71ACD927D3FD95008F5D55 /* KingfisherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherError.swift; sourceTree = "<group>"; };
 		4FFA3D2927D0D0110065A989 /* orderListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderListCellViewModel.swift; sourceTree = "<group>"; };
 		4FFA3D2B27D0D2BA0065A989 /* OrderListViewControoleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewControoleViewModel.swift; sourceTree = "<group>"; };
+		4FFE05F427D2CD230062DB1D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4FFE05F627D2CD3B0062DB1D /* DetailViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerViewModel.swift; sourceTree = "<group>"; };
+		6D0A0FFDB14106E0BDA3CD5A /* Pods_TestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F55EBDE32C7B0E1224EC3EF /* Pods-TestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTask.release.xcconfig"; path = "Target Support Files/Pods-TestTask/Pods-TestTask.release.xcconfig"; sourceTree = "<group>"; };
+		FFB6195EBCEDC25E51D42F5E /* Pods-TestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTask.debug.xcconfig"; path = "Target Support Files/Pods-TestTask/Pods-TestTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6981A4D3746A74B30C75D24 /* Pods_TestTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +73,8 @@
 			children = (
 				4F1E58FA27CF90630017BFA3 /* TestTask */,
 				4F1E58F927CF90630017BFA3 /* Products */,
+				F21DC1E2746535FDC47C1E33 /* Pods */,
+				CEACB6E4583D340682FCB12A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,14 +89,13 @@
 		4F1E58FA27CF90630017BFA3 /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
-				4F1E592C27D01E360017BFA3 /* Errors */,
-				4F1E591E27CF97220017BFA3 /* Extension */,
 				4F1E590F27CF923F0017BFA3 /* Supporting */,
-				4F1E591B27CF93470017BFA3 /* Managers */,
+				4F1E591B27CF93470017BFA3 /* Service */,
 				4F1E591227CF92820017BFA3 /* Modules */,
+				4F1E591E27CF97220017BFA3 /* Extension */,
 				4F1E591127CF92680017BFA3 /* Resources */,
 				4F1E591027CF92510017BFA3 /* Storyboard */,
-				4F1E590927CF90640017BFA3 /* Info.plist */,
+				4F1E592C27D01E360017BFA3 /* Errors */,
 			);
 			path = TestTask;
 			sourceTree = "<group>";
@@ -89,6 +103,7 @@
 		4F1E590F27CF923F0017BFA3 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				4F1E590927CF90640017BFA3 /* Info.plist */,
 				4F1E58FB27CF90630017BFA3 /* AppDelegate.swift */,
 				4F1E58FD27CF90630017BFA3 /* SceneDelegate.swift */,
 			);
@@ -132,6 +147,8 @@
 		4F1E591427CF92B70017BFA3 /* DetailOrder */ = {
 			isa = PBXGroup;
 			children = (
+				4FFE05F427D2CD230062DB1D /* DetailViewController.swift */,
+				4FFE05F627D2CD3B0062DB1D /* DetailViewControllerViewModel.swift */,
 			);
 			path = DetailOrder;
 			sourceTree = "<group>";
@@ -154,13 +171,14 @@
 			path = OrderListCell;
 			sourceTree = "<group>";
 		};
-		4F1E591B27CF93470017BFA3 /* Managers */ = {
+		4F1E591B27CF93470017BFA3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				4F1E592A27CFE51B0017BFA3 /* Model.swift */,
 				4F1E592827CFD4D30017BFA3 /* DataFetchManager.swift */,
+				4F71ACD727D3D9C4008F5D55 /* KingFisherManager.swift */,
 			);
-			path = Managers;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		4F1E591E27CF97220017BFA3 /* Extension */ = {
@@ -186,8 +204,26 @@
 			isa = PBXGroup;
 			children = (
 				4F1E592D27D01E520017BFA3 /* NetworkError.swift */,
+				4F71ACD927D3FD95008F5D55 /* KingfisherError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		CEACB6E4583D340682FCB12A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D0A0FFDB14106E0BDA3CD5A /* Pods_TestTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F21DC1E2746535FDC47C1E33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FFB6195EBCEDC25E51D42F5E /* Pods-TestTask.debug.xcconfig */,
+				7F55EBDE32C7B0E1224EC3EF /* Pods-TestTask.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F1E590C27CF90640017BFA3 /* Build configuration list for PBXNativeTarget "TestTask" */;
 			buildPhases = (
+				F95F32983CE260993291B53A /* [CP] Check Pods Manifest.lock */,
 				4F1E58F427CF90630017BFA3 /* Sources */,
 				4F1E58F527CF90630017BFA3 /* Frameworks */,
 				4F1E58F627CF90630017BFA3 /* Resources */,
+				2F826CAE067CAB352AC08947 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,11 +293,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2F826CAE067CAB352AC08947 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestTask/Pods-TestTask-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestTask/Pods-TestTask-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestTask/Pods-TestTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F95F32983CE260993291B53A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4F1E58F427CF90630017BFA3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F71ACDA27D3FD95008F5D55 /* KingfisherError.swift in Sources */,
 				4F1E58FC27CF90630017BFA3 /* AppDelegate.swift in Sources */,
 				4F1E591A27CF93400017BFA3 /* OrderListTableViewController.swift in Sources */,
 				4F1E591D27CF93630017BFA3 /* OrderListTableViewCell.swift in Sources */,
@@ -267,12 +348,15 @@
 				4F1E58FE27CF90630017BFA3 /* SceneDelegate.swift in Sources */,
 				4F1E592027CF97560017BFA3 /* StackView Extension.swift in Sources */,
 				4F1E592B27CFE51B0017BFA3 /* Model.swift in Sources */,
+				4F71ACD827D3D9C4008F5D55 /* KingFisherManager.swift in Sources */,
 				4F1E592527CF99760017BFA3 /* UIFont extension.swift in Sources */,
 				4F1E592327CF979D0017BFA3 /* UILabel Extension.swift in Sources */,
 				4F1E592927CFD4D30017BFA3 /* DataFetchManager.swift in Sources */,
 				4F1E592E27D01E520017BFA3 /* NetworkError.swift in Sources */,
 				4FFA3D2C27D0D2BA0065A989 /* OrderListViewControoleViewModel.swift in Sources */,
+				4FFE05F727D2CD3B0062DB1D /* DetailViewControllerViewModel.swift in Sources */,
 				4F1E592727CF99C50017BFA3 /* UIImageView Extension.swift in Sources */,
+				4FFE05F527D2CD230062DB1D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +492,7 @@
 		};
 		4F1E590D27CF90640017BFA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFB6195EBCEDC25E51D42F5E /* Pods-TestTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -415,7 +500,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 26YA3Z9SA6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestTask/Info.plist;
+				INFOPLIST_FILE = TestTask/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -436,6 +521,7 @@
 		};
 		4F1E590E27CF90640017BFA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F55EBDE32C7B0E1224EC3EF /* Pods-TestTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,7 +529,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 26YA3Z9SA6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestTask/Info.plist;
+				INFOPLIST_FILE = TestTask/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -6,14 +6,16 @@
 //
 
 import Foundation
-import UIKit
 
-protocol ViewControllerViewModelProtocol {
+
+//MARK: Protocol
+protocol ViewControllerViewModelProtocol: AnyObject {
     var nubmerOfRowInSection: Int { get }
     func returnCell(forindexPath indexPath: IndexPath) -> OrderListCellViewModelProtocol?
-    func getOrders(tableView: UITableView, funcShowAllert: @escaping (Error) -> Void)
+    func getOrders(complition: @escaping (String) -> Void, successComplition: @escaping () -> Void)
+    func returnDetailViewModel(indexPath: IndexPath) -> DetailViewControllerViewModelProtocol?
 }
-
+//MARK: ViewModel
 class ViewControllerViewModel: ViewControllerViewModelProtocol {
     var nubmerOfRowInSection: Int {
         orders?.count ?? 0
@@ -21,25 +23,22 @@ class ViewControllerViewModel: ViewControllerViewModelProtocol {
     var networkManager: NetworkManagerProtocol? = NetworkManager()
     
     var orders: MainData?
-   
-    func getOrders(tableView: UITableView, funcShowAllert: @escaping (Error) -> Void) {
+    //MARK: Datafetch
+    func getOrders(complition: @escaping (String) -> Void, successComplition: @escaping () -> Void) {
         networkManager?.getList { [weak self] result in
             switch result {
-                
             case .success(var fetchedOrders):
                 fetchedOrders.sort {
                     $0.orderTime > $1.orderTime
                 }
                 self?.orders = fetchedOrders
-               
-                DispatchQueue.main.async {
-                    tableView.reloadData()
-                }
+                successComplition()
             case .failure(let error):
-                funcShowAllert(error)
+                complition(error.localizedDescription)
             }
         }
     }
+
     
     func returnCell(forindexPath indexPath: IndexPath) -> OrderListCellViewModelProtocol? {
         
@@ -48,9 +47,12 @@ class ViewControllerViewModel: ViewControllerViewModelProtocol {
             $0.orderTime > $1.orderTime
         }
         let order =  data[indexPath.row]
-        print(order)
         return OrderListCellViewModel(order: order)
     }
     
-
+    func returnDetailViewModel(indexPath: IndexPath) -> DetailViewControllerViewModelProtocol? {
+        guard let order = orders else { return nil }
+        return DetailViewControllerViewModel(order: order[indexPath.row])
+    }
+    
 }

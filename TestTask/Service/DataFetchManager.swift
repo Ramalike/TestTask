@@ -8,13 +8,12 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    var baseUrlString: String { get set }
     func getList(complition: @escaping (Result<MainData, Error>) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
     
-    var baseUrlString = "https://www.roxiemobile.ru/careers/test/orders.jsonx`"
+    private let baseUrlString = "https://www.roxiemobile.ru/careers/test/orders.json"
     
     func getList(complition: @escaping (Result<MainData, Error>) -> Void) {
         request(url: baseUrlString) { (result: Result<MainData, Error>) in
@@ -22,7 +21,7 @@ class NetworkManager: NetworkManagerProtocol {
             case .success(let success):
                 DispatchQueue.main.async {
                     complition(.success(success))
-                    print(success)
+//                    print(success)
                 }
             case .failure(let failure):
                 DispatchQueue.main.async {
@@ -44,7 +43,7 @@ class NetworkManager: NetworkManagerProtocol {
                     return
                 }
                 DispatchQueue.main.async {
-                    complition(.failure(NetworkError.lostNetworkConnection.errorDescription as! Error))
+                    complition(.failure(NetworkError.lostNetworkConnection))
                 }
                 return
             }

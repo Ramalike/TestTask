@@ -11,8 +11,10 @@ enum NetworkError: Error {
     case lostNetworkConnection
     case irconectData
     case serverError(error: Error)
-    
-    var errorDescription: String? {
+}
+
+extension NetworkError: LocalizedError {
+        var errorDescription: String? {
         switch self {
         case .irconectData:
             return "Incorrect data"
@@ -22,6 +24,4 @@ enum NetworkError: Error {
             return "Server error: \(error.localizedDescription)"
         }
     }
-}
-
-
+    }
