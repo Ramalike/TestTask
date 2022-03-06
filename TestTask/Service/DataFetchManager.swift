@@ -21,7 +21,6 @@ class NetworkManager: NetworkManagerProtocol {
             case .success(let success):
                 DispatchQueue.main.async {
                     complition(.success(success))
-//                    print(success)
                 }
             case .failure(let failure):
                 DispatchQueue.main.async {

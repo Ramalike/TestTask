@@ -26,13 +26,11 @@ class DetailViewController: UIViewController {
                 setupViewElements()
                 viewModel?.imageManager.getImageData(id: id, complition: { [weak self] data in
                     self?.vehicleImage.image = UIImage(data: data)
+                    guard self?.vehicleImage.image != nil else { self?.showAllert(error: NetworkError.irconectData); return }
                 })
-            } else {
-                showAllert(error: NetworkError.irconectData)
             }
         }
     }
-    
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
