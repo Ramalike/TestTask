@@ -16,7 +16,7 @@ protocol ViewControllerViewModelProtocol: AnyObject {
     func returnDetailViewModel(indexPath: IndexPath) -> DetailViewControllerViewModelProtocol?
 }
 //MARK: ViewModel
-class ViewControllerViewModel: ViewControllerViewModelProtocol {
+final class ViewControllerViewModel: ViewControllerViewModelProtocol {
     var nubmerOfRowInSection: Int {
         orders?.count ?? 0
     }

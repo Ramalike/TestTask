@@ -11,7 +11,7 @@ protocol NetworkManagerProtocol {
     func getList(complition: @escaping (Result<MainData, Error>) -> Void)
 }
 
-class NetworkManager: NetworkManagerProtocol {
+final class NetworkManager: NetworkManagerProtocol {
     
     private let baseUrlString = "https://www.roxiemobile.ru/careers/test/orders.json"
     

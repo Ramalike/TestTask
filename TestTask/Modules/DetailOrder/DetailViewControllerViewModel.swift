@@ -14,7 +14,7 @@ protocol DetailViewControllerViewModelProtocol: AnyObject {
 }
 
 
-class DetailViewControllerViewModel: DetailViewControllerViewModelProtocol {
+final class DetailViewControllerViewModel: DetailViewControllerViewModelProtocol {
     var imageManager: ImageManagerProtocol = ImageManager()
     var order: FullData?
     var id: String

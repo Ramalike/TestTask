@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrderListTableViewController: UITableViewController {
+final class OrderListTableViewController: UITableViewController {
     
     private var viewModel: ViewControllerViewModelProtocol! {
         didSet {

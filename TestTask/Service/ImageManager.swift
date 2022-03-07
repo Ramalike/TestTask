@@ -11,7 +11,7 @@ protocol ImageManagerProtocol {
     func getImageData(id: String, complition: @escaping (Data) -> Void)
 }
 
-class ImageManager: ImageManagerProtocol {
+final class ImageManager: ImageManagerProtocol {
     let baseUrl = "https://www.roxiemobile.ru/careers/test/images/"
     private var imageCache = NSCache<NSString, NSData>()
     

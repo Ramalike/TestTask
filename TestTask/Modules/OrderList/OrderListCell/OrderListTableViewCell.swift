@@ -11,7 +11,7 @@ protocol OrderListTableViewCellProtocol: AnyObject {
     var viewModel: OrderListCellViewModel? { get }
 }
 
-class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
+final class OrderListTableViewCell: UITableViewCell, OrderListTableViewCellProtocol {
     
     //MARK: Properties
     private var dataLabel = UILabel(font: .helvetica17Bold())

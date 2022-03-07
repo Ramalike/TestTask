@@ -12,7 +12,7 @@ protocol OrderListCellViewModelProtocol: AnyObject {
     
 }
 
-class OrderListCellViewModel: OrderListCellViewModelProtocol {
+final class OrderListCellViewModel: OrderListCellViewModelProtocol {
     var orders: FullData
     
     var startCityAdress: String {
