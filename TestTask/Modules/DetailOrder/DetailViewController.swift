@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     private let modelNameLabel = LabelWithLine(font: .helvetica17())
     private let regNumberLabel = LabelWithLine(font: .helvetica17())
     private let driverNameLabel = LabelWithLine(font: .helvetica17())
+    private let activityIndicator = UIActivityIndicatorView()
     
     weak var viewModel: DetailViewControllerViewModelProtocol? {
         didSet {
@@ -25,8 +26,10 @@ class DetailViewController: UIViewController {
                 }
                 setupViewElements()
                 viewModel?.imageManager.getImageData(id: id, complition: { [weak self] data in
-                    self?.vehicleImage.image = UIImage(data: data)
-                    guard self?.vehicleImage.image != nil else { self?.showAllert(error: NetworkError.irconectData); return }
+                    guard let self = self else { return }
+                    self.vehicleImage.image = UIImage(data: data)
+                    self.activityIndicator.stopAnimating()
+                    guard self.vehicleImage.image != nil else { self.showAllert(error: NetworkError.irconectData); return }
                 })
             }
         }
@@ -44,19 +47,21 @@ class DetailViewController: UIViewController {
         vehicleImage.clipsToBounds = true
         vehicleImage.contentMode = .scaleAspectFill
         view.backgroundColor = .white
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
     }
     
     private func setupViewElements() {
-        guard let unwrapViewModel = viewModel else {
+        guard let unwrapViewModelOrder = viewModel?.order else {
             return
         }
         let dateFortmater = DateFormatter()
         dateFortmater.dateFormat = "E, d MMM yyyy HH:mm"
         timeLabel.text = "Info"
-        modelNameLabel.text = "Car: " + (unwrapViewModel.order?.vehicle.modelName)!
-        regNumberLabel.text = "Register number: " + (unwrapViewModel.order?.vehicle.regNumber)!
-        driverNameLabel.text = "Driver name: " + (unwrapViewModel.order?.vehicle.driverName)!
-        orderTimeLabel.text = "Order time: " + dateFortmater.string(from: unwrapViewModel.order!.orderTime)
+        modelNameLabel.text = "Car: " + (unwrapViewModelOrder.vehicle.modelName)
+        regNumberLabel.text = "Register number: " + (unwrapViewModelOrder.vehicle.regNumber)
+        driverNameLabel.text = "Driver name: " + (unwrapViewModelOrder.vehicle.driverName)
+        orderTimeLabel.text = "Order time: " + dateFortmater.string(from: unwrapViewModelOrder.orderTime)
     }
     
     private func setupConstraints() {
@@ -65,7 +70,7 @@ class DetailViewController: UIViewController {
         grayView.layer.cornerRadius = 8
         grayView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(grayView)
-        
+        vehicleImage.addSubview(activityIndicator)
         let infoStackView = UIStackView(arrangedSubviews: [
             timeLabel,
             orderTimeLabel,
@@ -78,6 +83,7 @@ class DetailViewController: UIViewController {
         
         infoStackView.translatesAutoresizingMaskIntoConstraints = false
         vehicleImage.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             grayView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
@@ -94,6 +100,9 @@ class DetailViewController: UIViewController {
             vehicleImage.leadingAnchor.constraint(equalTo: grayView.leadingAnchor, constant: 15),
             vehicleImage.trailingAnchor.constraint(equalTo: grayView.trailingAnchor, constant: -18),
             vehicleImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.29),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: vehicleImage.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: vehicleImage.centerYAnchor)
         ])
     }
     
